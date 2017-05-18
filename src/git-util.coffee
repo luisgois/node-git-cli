@@ -39,7 +39,7 @@ GitUtil =
   parseLog: (logStr) ->
     logStr = logStr.replace /"},\n/g, '"},'  # remove linebreaks between commits
     logStr = logStr.replace /\n/g, '\\n'     # replace linebreaks in messages
-    logStr = logStr.replace /[\[\]]/g, '|'     # replace square brackets in messages
+    logStr = logStr.replace /[\[\]]/g, ''     # delete square brackets in messages
     logStr = '[' + logStr[0...-1] + ']'      # remove last comma
     logs = JSON.parse logStr
     _.each logs, (log) ->
